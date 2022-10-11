@@ -19,25 +19,15 @@ public class Student {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getMajor() {
         return major;
     }
 
-    public void setMajor(String major) {
-        this.major = major;
-    }
 
     public ArrayList<Double> getGradeList() {
         return gradeList;
     }
 
-    public void setGradeList(ArrayList<Double> gradeList) {
-        this.gradeList = gradeList;
-    }
 
     static void displayAverageGrades(ArrayList<Student> studentList) {
         double summe = 0;

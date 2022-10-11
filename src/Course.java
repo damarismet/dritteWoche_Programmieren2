@@ -2,34 +2,26 @@ import java.util.ArrayList;
 
 public class Course {
 
-    public Course(){
+    private final String courseId;
+    private final String courseName;
+    private final ArrayList<Student> students;
 
+
+    public Course(String courseId, String courseName, ArrayList<Student> students) {
+        this.courseId = courseId;
+        this.courseName = courseName;
+        this.students = students;
     }
-    private String courseId;
-    private String courseName;
-    private ArrayList<Double> students;
 
     public String getCourseId() {
         return courseId;
-    }
-
-    public void setCourseId(String courseId) {
-        this.courseId = courseId;
     }
 
     public String getCourseName() {
         return courseName;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public ArrayList<Double> getStudents() {
+    public ArrayList<Student> getStudents() {
         return students;
-    }
-
-    public void setStudents(ArrayList<Double> students) {
-        this.students = students;
     }
 }

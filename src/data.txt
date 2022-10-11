@@ -1,3 +1,5 @@
+B-LS-MI 007
+Programmieren II
 Joe Cool, mt, 4.5, 3, 5.2, 4
 Jane Smart, mi, 4.7, 5, 5, 4.5, 5.2, 5
 Sam Simpson, mi, 3, 4.5, 4.6, 4.3, 4

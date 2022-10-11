@@ -9,17 +9,24 @@ import java.util.Scanner;
 
 public class Reader {
 
-    public static ArrayList<Student> readData(File file){
-        ArrayList<Student> studentList = new ArrayList<Student>();
+    public static Course readData(File file){
+        ArrayList<Student> studentList = new ArrayList<>();
+
         String studentName = "";
         String major = "";
+        String courseId="";
+        String courseName="";
 
         HashMap<String,String> majors = (HashMap<String, String>) readMajorMap();
 
         try{
             Scanner scanner = new Scanner(file);
+
+            courseId = scanner.nextLine();
+            courseName= scanner.nextLine();
             while (scanner.hasNextLine()){
-                ArrayList<Double> listOfDouble = new ArrayList<Double>();
+
+                ArrayList<Double> listOfDouble = new ArrayList<>();
                 String text = scanner.nextLine();
                 String[] elements = text.split(", ");
 
@@ -38,6 +45,7 @@ public class Reader {
                         }
                     }
                 }
+
                 Student student = new Student(studentName, major, listOfDouble);
                 studentList.add(student);
             }
@@ -45,7 +53,8 @@ public class Reader {
         }catch (IOException e){
             System.out.println(e);
         }
-        return studentList;
+        Course course = new Course(courseId, courseName, studentList);
+        return course;
     }
 
     public static Map<String, String> readMajorMap() {
