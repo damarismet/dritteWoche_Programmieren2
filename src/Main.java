@@ -35,9 +35,7 @@ public class Main extends Student {
     }
 
     static void displayAverageGrades(ArrayList<Student> studentList) {
-        double summe = 0;
-        double lowestgrade = 0;
-        double average = 0;
+        double average;
 
         for (Student student : studentList) {
             average = student.getAverage();

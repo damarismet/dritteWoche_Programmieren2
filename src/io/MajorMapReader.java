@@ -9,7 +9,7 @@ import java.io.File;
 
 public class MajorMapReader {
 
-    private File majorMapFile;
+    private final File majorMapFile;
     public MajorMapReader(String fileName) {
         majorMapFile = new File(fileName);
     }
