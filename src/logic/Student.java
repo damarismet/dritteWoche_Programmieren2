@@ -21,8 +21,7 @@ public class Student {
         return name;
     }
 
-    public String getMajor() {
-        return major;
+    public String getMajor() { return major;
     }
 
 

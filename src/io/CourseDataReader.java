@@ -12,6 +12,9 @@ public class CourseDataReader {
     public static Optional<Course> readData(File file) {
         ArrayList<Student> studentList = new ArrayList<>();
 
+        MajorMapReader mapReader = new MajorMapReader("src/io/major-map.txt");
+        Map<String, String> majorMapList = mapReader.readMajorMap();
+
         String studentName = "";
         String major = "";
         String courseId = "";
@@ -29,7 +32,7 @@ public class CourseDataReader {
                 String[] elements = text.split(", ");
 
                 studentName = elements[0];
-                major = elements[1];
+                major = majorMapList.get(elements[1]);
 
                 for (int i = 2; i < elements.length; i++) {
 

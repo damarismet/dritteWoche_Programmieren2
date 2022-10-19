@@ -1,19 +1,14 @@
 import io.CourseDataReader;
-import io.MajorMapReader;
 import logic.Course;
 import logic.Student;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Optional;
 
 public class Main extends Student {
 
     public static void main(String[] args) {
-
-        MajorMapReader mapReader = new MajorMapReader("src/io/major-map.txt");
-        Map<String, String> majormap = mapReader.readMajorMap();
 
         String file = "src/io/data.txt";
         Optional<Course> oCourse = CourseDataReader.readData(new File(file));

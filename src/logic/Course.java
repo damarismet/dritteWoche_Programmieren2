@@ -1,7 +1,5 @@
 package logic;
 
-import logic.Student;
-
 import java.util.ArrayList;
 
 public class Course {
