@@ -1,7 +1,5 @@
 package logic;
 
-import java.util.ArrayList;
-
 public class RepeatingStudent extends Student {
 
     public RepeatingStudent() {
@@ -14,7 +12,9 @@ public class RepeatingStudent extends Student {
         this.examGrade = examGrade;
     }
 
-    public double getExamGrade() { return examGrade; }
+    public double getExamGrade() {
+        return examGrade;
+    }
 
 
     public String toString() {
@@ -23,7 +23,7 @@ public class RepeatingStudent extends Student {
 
     @Override
     public double getFinalGrade(double preGradeFactor) {
-        double note= examGrade;
+        double note = examGrade;
         return note;
     }
 

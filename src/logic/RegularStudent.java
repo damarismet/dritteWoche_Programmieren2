@@ -16,7 +16,9 @@ public class RegularStudent extends Student {
         this.examGrade = examGrade;
     }
 
-    public double getExamGrade() { return examGrade; }
+    public double getExamGrade() {
+        return examGrade;
+    }
 
     public ArrayList<Double> getGradeList() {
         return gradeList;
@@ -38,13 +40,14 @@ public class RegularStudent extends Student {
         average = summe / ((gradeList.size() - 1));
         return average;
     }
+
     public String toString() {
         return getName();
     }
 
     @Override
     public double getFinalGrade(double preGradeFactor) {
-        double note= getAverage()*preGradeFactor + examGrade*(1-preGradeFactor);
+        double note = getAverage() * preGradeFactor + examGrade * (1 - preGradeFactor);
         return note;
     }
 }

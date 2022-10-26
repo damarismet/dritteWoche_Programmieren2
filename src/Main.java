@@ -24,8 +24,7 @@ public class Main extends Student {
             System.out.println("Number of students read: " + course.getStudents().size());
             System.out.println(" -----------------------------------------------------------");
 
-        }
-        else {
+        } else {
             System.out.println("Unable to read student data, sorry.");
         }
 
@@ -38,7 +37,7 @@ public class Main extends Student {
 
         for (Student student : course.getStudents()) {
             String major;
-            double preGradeFactor= 0.3;
+            double preGradeFactor = 0.3;
             if (majorMap.containsKey(student.getMajor())) {
                 major = majorMap.get(student.getMajor());
             } else {

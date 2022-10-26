@@ -10,12 +10,13 @@ import java.io.File;
 public class MajorMapReader {
 
     private final File majorMapFile;
+
     public MajorMapReader(String fileName) {
         majorMapFile = new File(fileName);
     }
 
 
-    public  Map<String, String> readMajorMap() {
+    public Map<String, String> readMajorMap() {
         HashMap<String, String> map = new HashMap<>();
         String line;
         try (BufferedReader reader = new BufferedReader(new FileReader(majorMapFile))) {
@@ -25,8 +26,7 @@ public class MajorMapReader {
                     String key = keyValuePair[0].trim();
                     String value = keyValuePair[1].trim();
                     map.put(key, value);
-                }
-                else {
+                } else {
                     System.out.println("No Key:Value found in line, ignoring: " + line);
                 }
             }
