@@ -1,6 +1,8 @@
 package io;
 
 import logic.Course;
+import logic.RegularStudent;
+import logic.RepeatingStudent;
 import logic.Student;
 
 import java.io.File;
@@ -12,14 +14,9 @@ public class CourseDataReader {
     public static Optional<Course> readData(File file) {
         ArrayList<Student> studentList = new ArrayList<>();
 
-        MajorMapReader mapReader = new MajorMapReader("src/io/major-map.txt");
-        Map<String, String> majorMapList = mapReader.readMajorMap();
 
-        String studentName = "";
-        String major = "";
-        String courseId = "";
-        String courseName = "";
-
+        String courseId = null;
+        String courseName = null;
         try {
             Scanner scanner = new Scanner(file);
 
@@ -29,19 +26,32 @@ public class CourseDataReader {
 
                 ArrayList<Double> listOfDouble = new ArrayList<>();
                 String text = scanner.nextLine();
-                String[] elements = text.split(", ");
+                String[] tokens = text.split(",");
 
-                studentName = elements[0];
-                major = majorMapList.get(elements[1]);
+                String studentName = tokens[0];
+                String major = tokens[1].trim();
+                double examGrade = Double.parseDouble(tokens[3]);
 
-                for (int i = 2; i < elements.length; i++) {
+                String isRepeating = tokens[2].trim();
+                for (int i = 3; i < tokens.length; i++) {
 
-                    listOfDouble.add(Double.parseDouble(elements[i]));
+                    listOfDouble.add(Double.parseDouble(tokens[i]));
                 }
 
-                Student student = new Student(studentName, major, listOfDouble);
+                Student student;
+                if (isRepeating.equals("r")) {
+                    student = new RepeatingStudent(studentName, major, examGrade);
+                } else {
+                    ArrayList<Double> studentGrades = new ArrayList<>();
+                    for (int i = 4; i < tokens.length; i++) {
+                        double grade = Double.parseDouble(tokens[i]);
+                        studentGrades.add(grade);
+                    }
+                    student = new RegularStudent(studentName, major, examGrade, studentGrades);
+                }
                 studentList.add(student);
             }
+
             scanner.close();
         } catch (IOException e) {
             System.out.println(e);
