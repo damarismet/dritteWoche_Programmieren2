@@ -21,8 +21,8 @@ public class TagValueDataReader implements CourseDataReader {
         String major = "";
         double examGrade = 0;
         boolean repeatStudent = false;
-
-
+        String key = "";
+        String value = "";
         String line = "";
 
         try {
@@ -32,14 +32,11 @@ public class TagValueDataReader implements CourseDataReader {
             line = scanner.nextLine();
             courseName = line.substring((line.indexOf(":")+2));     // Course Name
 
-            Map<String, String> map = new HashMap<>();
             while (scanner.hasNext()) {
                 line = scanner.nextLine();
-                String splitted[] = line.split(": ");
-                map.put(splitted[0].trim(), splitted[1].trim());
+                key = line.substring(0,line.indexOf(":"));
+                value = line.substring(line.indexOf(":")+2);
 
-                for (String key : map.keySet()) {
-                    String value = map.get(key);
                     if (key.equals("name")) {
                         studentName = value;
                     }
@@ -70,7 +67,6 @@ public class TagValueDataReader implements CourseDataReader {
                         studentList.add(student);
                     }
 
-                }
 
             }
             scanner.close();
