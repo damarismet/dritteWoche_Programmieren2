@@ -1,5 +1,7 @@
 import io.CourseDataReader;
+import io.CsvDataReader;
 import io.MajorMapReader;
+import io.TagValueDataReader;
 import logic.Course;
 import logic.Student;
 
@@ -12,11 +14,12 @@ public class Main extends Student {
     public static void main(String[] args) {
 
 
-        String file = "src/io/data.txt";
-        Optional<Course> oCourse = CourseDataReader.readData(new File(file));
+        String file = "src/io/grades-v04.txt";
+        CourseDataReader dataReader= new TagValueDataReader();
+        Optional<Course> c = dataReader.readData(new File(file));
         Course course;
-        if (oCourse.isPresent()) {
-            course = oCourse.get();
+        if (c.isPresent()) {
+            course = c.get();
 
             System.out.println("Grades for: " + course.getCourseName() + " (" + course.getCourseId() + ")");
             System.out.println(" -----------------------------------------------------------");
@@ -49,4 +52,3 @@ public class Main extends Student {
         }
     }
 }
-
