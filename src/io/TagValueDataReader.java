@@ -11,6 +11,9 @@ import java.util.*;
 
 public class TagValueDataReader implements CourseDataReader {
 
+    public TagValueDataReader(String fileName) {
+    }
+
     public Optional<Course> readData(File file) {
         ArrayList<Student> studentList = new ArrayList<>();
 
