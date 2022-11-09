@@ -11,7 +11,7 @@ import java.util.*;
 
 public class TagValueDataReader implements CourseDataReader {
 
-    public TagValueDataReader(String fileName) {
+    public TagValueDataReader(File fileName) {
     }
 
     public Optional<Course> readData(File file) {

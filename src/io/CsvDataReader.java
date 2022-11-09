@@ -11,7 +11,7 @@ import java.util.*;
 
 public class CsvDataReader implements CourseDataReader{
 
-    public CsvDataReader(String fileName) {
+    public CsvDataReader(File fileName) {
     }
 
     public Optional<Course> readData(File file) {
